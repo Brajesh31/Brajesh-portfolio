@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .bg {
+      fill: #0a0f2c; /* Night sky dark blue */
+    }
+    .text {
+      font: bold 48px Arial, sans-serif;
+      fill: #38bdf8; /* Cyan glow */
+      text-anchor: middle;
+      dominant-baseline: middle;
+      filter: url(#glow);
+      animation: glowPulse 2s infinite alternate;
+    }
+    @keyframes glowPulse {
+      from { fill: #38bdf8; }
+      to { fill: #9333ea; }
+    }
+  </style>
+  
+  <!-- Glow filter -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"></feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="blur"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Night background -->
+  <rect width="100" height="100" class="bg"></rect>
+
+  <!-- Glowing Text -->
+  <text x="50" y="55" class="text">BE</text>
+</svg>
